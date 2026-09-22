@@ -40,10 +40,10 @@ No mínimo 3, respondíveis com os dados escolhidos. Uma pergunta respondível t
 
 | # | Pergunta | Que decisão ela informa? | Respondível com os dados? (verificado na amostra) |
 |---|---|---|---|
-| 1 | | | |
-| 2 | | | |
-| 3 | | | |
-| 4 (opcional) | | | |
+| 1 | Quais titulares concentram múltiplos empreendimentos no mesmo município, com potência somada cruzando o limiar de microgeração? | Quais titulares estão descumprindo a Resolução Normativa da ANEEL nº1000/2021 | Sim |
+| 2 | As conexões aparecem próximas ao tempo - o fracionamento tem assinatura temporal? | Caso as centrais geradoras tenham sido conectadas juntas | Sim |
+| 3 | Que fonte, classe e subgrupo concentram os casos? | Qual o tipo de fonte de energia, classe e subgrupo tem os maiores volumes de casos. | Sim |
+| 4 (opcional) | Quanta potência está sob suspeita em PE, e como isso se compara às outras distribuidoras? | O quanto Pernambuco está descumprindo a regra imposta pela ANEEL em comparação com outros estados e concessionárias de energia | Sim |
 | 5 (opcional) | | | |
 
 ---
@@ -54,7 +54,7 @@ Uma linha por fonte. A amostra precisa ter sido **baixada e aberta hoje** — co
 
 | Fonte | Link | Formato | Volume estimado | Licença/acesso | Amostra baixada e aberta? (sim/não) | Colunas-chave confirmadas na amostra |
 |---|---|---|---|---|---|---|
-| | | | | | | |
+| Dados Abertos ANEEL | dadosabertos.aneel.gov.br/dataset/relacao-de-empreendimentos-de-geracao-distribuida | CSV | | | | |
 | | | | | | | |
 
 ---
