@@ -8,7 +8,7 @@
 | **Integrantes** | Victor Cavalcante da Silva |
 | **Mentor** | |
 | **Tema** | Radar de Fracionamento |
-| **Repositório GitHub** | https://github.com/Victor-CSilva/Projeto01-Next/edit/main/README.md |
+| **Repositório GitHub** | https://github.com/Victor-CSilva/Projeto01-Next |
 
 ---
 
