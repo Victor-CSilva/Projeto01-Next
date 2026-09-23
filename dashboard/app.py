@@ -37,7 +37,7 @@ df_suspeitos = pd.read_sql(query, con=engine)
 # --- Números-resumo ---
 casos_por_cidade = (
     df_suspeitos.groupby("NomMunicipio")
-    .size()a
+    .size()
     .reset_index(name="casos_suspeitos")
     .sort_values("casos_suspeitos", ascending=False)
 )
