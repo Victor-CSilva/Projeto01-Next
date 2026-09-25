@@ -38,6 +38,31 @@ ORDER BY potencia_total DESC
 
 df_suspeitos = pd.read_sql(query, con=engine)
 
+query_cep = """
+SELECT
+    cpf_cnpj,
+    cep,
+    COUNT(*) AS qtd_usinas_no_cep
+FROM empreendimentos_pe
+WHERE distribuidora = 'Neoenergia PE' AND uf = 'PE'
+GROUP BY cpf_cnpj, cep
+HAVING COUNT(*) > 1
+"""
+df_cep_repetido = pd.read_sql(query_cep, con=engine)
+
+df_suspeitos["fator_alarmante_cep"] = df_suspeitos["cpf_cnpj"].isin(df_cep_repetido["cpf_cnpj"])
+
+df_suspeitos["excedente_kw"] = df_suspeitos["potencia_total"] - 75
+
+# --- Montagem do ranking ---
+df_suspeitos["score"] = (
+    0.5 * df_suspeitos["excedente_kw"].rank(pct=True) +
+    0.3 * df_suspeitos["qtd_empreendimentos"].rank(pct=True) +
+    0.2 * df_suspeitos["fator_alarmante_cep"].astype(int)
+)
+
+df_suspeitos = df_suspeitos.sort_values("score", ascending=False)
+
 # --- Números-resumo ---
 casos_por_cidade = (
     df_suspeitos.groupby("municipio")
@@ -143,6 +168,7 @@ resumo_por_uf = (
     .reset_index()
     .sort_values("casos_suspeitos", ascending=False)
 )
+
 
 grafico_uf = (
     alt.Chart(resumo_por_uf.head(15))

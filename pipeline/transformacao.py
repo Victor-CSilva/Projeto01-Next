@@ -7,7 +7,8 @@ pd.set_option("display.max.columns", None)
 COLUNAS = [
   "NomTitularEmpreendimento", "NumCPFCNPJ", "NomMunicipio", "SigUF",
   "SigAgente", "DscPorte", "SigTipoGeracao", "MdaPotenciaInstaladaKW",
-  "DscClasseConsumo", "CodSubGrupoTarifario", "DscSubGrupoTarifario"
+  "DscClasseConsumo", "CodSubGrupoTarifario", "DscSubGrupoTarifario",
+  "CodCEP"
 ]
 
 # %%
@@ -29,7 +30,8 @@ def transformar() -> pd.DataFrame:
     "MdaPotenciaInstaladaKW": "potencia_kw",
     "DscClasseConsumo": "classe",
     "CodSubGrupoTarifario": "cod_subgrupo",
-    "DscSubGrupoTarifario": "subgrupo"
+    "DscSubGrupoTarifario": "subgrupo",
+    "CodCEP": "cep"
     })
   
   df["potencia_kw"] = pd.to_numeric(
