@@ -1,5 +1,5 @@
 from sqlalchemy import create_engine
-from transformacao import transformar
+from pipeline.transformacao import transformar
 import os
 from dotenv import load_dotenv
 
